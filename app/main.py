@@ -64,7 +64,7 @@ async def consume():
                 logger.warning(f"Received message: {messages}")
 
                 if len(messages) >= batch_size:
-                    await process(messages)
+                    process(messages)
                     send_post_request({"alert_type": "string",
                                        "device_id": "string",
                                        "port": "string",
