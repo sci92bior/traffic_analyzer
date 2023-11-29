@@ -94,8 +94,8 @@ class Tester:
         self.encoder = VAE.Encoder(100, 64, 2, 3, 16)
         self.decoder = VAE.Decoder(100, 64, 2, 3, 16)
 
-        self.encoder.load_state_dict(torch.load("saved_models_Test/Encoder.pth", map_location=torch.device('cpu')), strict=True)
-        self.decoder.load_state_dict(torch.load("saved_models_Test/Decoder.pth", map_location=torch.device('cpu')), strict=True)
+        self.encoder.load_state_dict(torch.load("app/saved_models_Test/Encoder.pth", map_location=torch.device('cpu')), strict=True)
+        self.decoder.load_state_dict(torch.load("app/saved_models_Test/Decoder.pth", map_location=torch.device('cpu')), strict=True)
 
         self.encoder.eval()
         self.decoder.eval()
