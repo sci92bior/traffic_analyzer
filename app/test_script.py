@@ -2,12 +2,12 @@ import json
 import logging
 
 import pandas as pd
+
 # import torch
 # import torch.nn.functional as F
 # from models import VAE
 
 logger = logging.getLogger(__name__)
-
 
 '''
 input:
@@ -29,6 +29,7 @@ input:
     "dst_port": 50001
 }
 '''
+
 
 #
 # def process_ip(ip):
@@ -59,7 +60,7 @@ input:
 def load_dict(data):
     # load csv
     dataframes = [pd.DataFrame(json.loads(i)) for i in data]
-    df = pd.concat(dataframes , ignore_index=True)
+    df = pd.concat(dataframes, ignore_index=True)
     # create df with only necesaries
     new_df = pd.DataFrame()
     new_df["type"] = df["Type"]
@@ -183,13 +184,9 @@ def load_dict(data):
 #         print(self.anomaly_count)
 
 
-
 def process(data):
     list_of_dicts = load_dict(data)
     logger.warning(f"Received message: {list_of_dicts}")
     if len(list_of_dicts) >= 5:
         # send post request to security controller
         return list_of_dicts
-
-
-

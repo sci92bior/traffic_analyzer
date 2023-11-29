@@ -1,5 +1,3 @@
-
-
 import asyncio
 import csv
 import json
@@ -23,7 +21,6 @@ loop = asyncio.get_event_loop()
 
 
 def send_post_request(data):
-
     # Convert the dictionary to a JSON string
     json_data = json.dumps(data)
     # Set the headers to indicate that you're sending JSON data
@@ -39,6 +36,7 @@ def send_post_request(data):
     else:
         print("POST request failed with status code:", response.status_code)
         print("Response content:", response.text)
+
 
 async def consume():
     consumer = AIOKafkaConsumer(
@@ -64,11 +62,17 @@ async def consume():
             messages.append(value)
 
             if len(messages) >= batch_size:
-                for item in messages:
-                    await process(item)
-                    logger.warning(f"Received message: {item}")
+                await process(messages)
+                send_post_request({"alert_type": "string",
+                                   "device_id": "string",
+                                   "port": "string",
+                                   "src_ip": "string",
+                                   "dst_ip": "string"
+                                   })
+                logger.warning(f"Received message: {message}")
                 messages = []  # Reset messages list after sending batch
     finally:
         await consumer.stop()
+
 
 asyncio.create_task(consume())
