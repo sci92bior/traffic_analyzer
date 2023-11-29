@@ -42,7 +42,7 @@ async def consume():
             if len(messages) >= batch_size:
                 for item in messages:
                     # await process(item)
-                    logger.warning(f"Received message: {item.value}")
+                    logger.warning(f"Received message: {item}")
                 messages = []  # Reset messages list after sending batch
     finally:
         await consumer.stop()
