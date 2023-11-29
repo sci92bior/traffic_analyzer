@@ -10,7 +10,6 @@ from random import shuffle
 from aiokafka import AIOKafkaConsumer
 from fastapi import FastAPI
 
-from test_script import process
 
 app = FastAPI()
 loop = asyncio.get_event_loop()
