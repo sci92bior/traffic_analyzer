@@ -5,10 +5,9 @@ import torch.optim.lr_scheduler as scheduler
 from torch import optim
 from torch.utils.data import DataLoader
 
-from models import VAE
-from utils.data import PacketDataSet
-from utils.other import Logger
-from utils.other import FindThreshold
+from app.models import VAE
+from app.utils.data import PacketDataSet
+from app.utils.other import FindThreshold, Logger
 
 
 def calculate_loss(data, reconstructed, mu, logvar, z, alfa, beta, device):
