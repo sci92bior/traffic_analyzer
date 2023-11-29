@@ -57,20 +57,21 @@ async def consume():
 
     try:
         async for message in consumer:
-            logger.warning(f"Received message: {message.value}")
-            value = message.value.decode('utf-8')  # Assuming messages are strings
-            messages.append(value)
+            if message is not None:
+                logger.warning(f"Received message: {message.value}")
+                value = message.value.decode('utf-8')  # Assuming messages are strings
+                messages.append(value)
 
-            if len(messages) >= batch_size:
-                await process(messages)
-                send_post_request({"alert_type": "string",
-                                   "device_id": "string",
-                                   "port": "string",
-                                   "src_ip": "string",
-                                   "dst_ip": "string"
-                                   })
-                logger.warning(f"Received message: {message}")
-                messages = []  # Reset messages list after sending batch
+                if len(messages) >= batch_size:
+                    await process(messages)
+                    send_post_request({"alert_type": "string",
+                                       "device_id": "string",
+                                       "port": "string",
+                                       "src_ip": "string",
+                                       "dst_ip": "string"
+                                       })
+                    logger.warning(f"Received message: {message}")
+                    messages = []  # Reset messages list after sending batch
     finally:
         await consumer.stop()
 
