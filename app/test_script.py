@@ -1,9 +1,13 @@
 import json
+import logging
 
 import pandas as pd
 import torch
 import torch.nn.functional as F
 from models import VAE
+
+logger = logging.getLogger(__name__)
+
 
 '''
 input:
@@ -179,9 +183,13 @@ class Tester:
         print(self.anomaly_count)
 
 
+
 def process(data):
     list_of_dicts = load_dict(data)
-    tester = Tester(list_of_dicts)
-    tester.process_dict()
+    logger.warning(f"Received message: {list_of_dicts}")
+    if len(list_of_dicts) >= 5:
+        # send post request to security controller
+        return list_of_dicts
+
 
 
