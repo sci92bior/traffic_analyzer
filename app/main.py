@@ -3,12 +3,14 @@
 import asyncio
 import csv
 import json
+import logging
 import os
 from typing import List
 from random import shuffle
 
 from aiokafka import AIOKafkaConsumer
 from fastapi import FastAPI
+logger = logging.getLogger(__name__)
 
 
 app = FastAPI()
@@ -33,6 +35,7 @@ async def consume():
 
     try:
         async for message in consumer:
+            logger.warning(f"Received message: {message.value}")
             value = message.value.decode('utf-8')  # Assuming messages are strings
             messages.append(value)
 
