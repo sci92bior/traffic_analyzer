@@ -1,0 +1,144 @@
+SDN:
+  Flow ID: False
+  Src IP: False
+  Src Port: False
+  Dst IP: True
+  Dst Port: True
+  Protocol: True
+  Timestamp: False
+  Flow Duration: True
+  Tot Fwd Pkts: True
+  Tot Bwd Pkts: True
+  TotLen Fwd Pkts: True
+  TotLen Bwd Pkts: True
+  Fwd Pkt Len Max: True
+  Fwd Pkt Len Min: True
+  Fwd Pkt Len Mean: True
+  Fwd Pkt Len Std: True
+  Bwd Pkt Len Max: True
+  Bwd Pkt Len Min: True
+  Bwd Pkt Len Mean: True
+  Bwd Pkt Len Std: True
+  Flow Byts/s: True
+  Flow Pkts/s: True
+  Flow IAT Mean: True
+  Flow IAT Std: True
+  Flow IAT Max: True
+  Flow IAT Min: True
+  Fwd IAT Tot: True
+  Fwd IAT Mean: True
+  Fwd IAT Std: True
+  Fwd IAT Max: True
+  Fwd IAT Min: True
+  Bwd IAT Tot: True
+  Bwd IAT Mean: True
+  Bwd IAT Std: True
+  Bwd IAT Max: True
+  Bwd IAT Min: True
+  Fwd PSH Flags: False
+  Bwd PSH Flags: True
+  Fwd URG Flags: False
+  Bwd URG Flags: True
+  Fwd Header Len: True
+  Bwd Header Len: True
+  Fwd Pkts/s: True
+  Bwd Pkts/s: True
+  Pkt Len Min: True
+  Pkt Len Max: True
+  Pkt Len Mean: True
+  Pkt Len Std: True
+  Pkt Len Var: True
+  FIN Flag Cnt: True
+  SYN Flag Cnt: True
+  RST Flag Cnt: True
+  PSH Flag Cnt: True
+  ACK Flag Cnt: True
+  URG Flag Cnt: True
+  CWE Flag Count: False
+  ECE Flag Cnt: False
+  Down/Up Ratio: True
+  Pkt Size Avg: True
+  Fwd Seg Size Avg: True
+  Bwd Seg Size Avg: True
+  Fwd Byts/b Avg: False
+  Fwd Pkts/b Avg: False
+  Fwd Blk Rate Avg: False
+  Bwd Byts/b Avg: False
+  Bwd Pkts/b Avg: False
+  Bwd Blk Rate Avg: False
+  Subflow Fwd Pkts: True
+  Subflow Fwd Byts: True
+  Subflow Bwd Pkts: True
+  Subflow Bwd Byts: True
+  Init Fwd Win Byts: True
+  Init Bwd Win Byts: True
+  Fwd Act Data Pkts: True
+  Fwd Seg Size Min: False
+  Active Mean: True
+  Active Std: True
+  Active Max: True
+  Active Min: True
+  Idle Mean: True
+  Idle Std: True
+  Idle Max: True
+  Idle Min: True
+  Label: True
+KDD:
+  duration: True
+  protocol_type: True
+  service: True
+  flag: True
+  src_bytes: True
+  dst_bytes: True
+  land: True
+  wrong_fragment: True
+  urgent: True
+  hot: True
+  num_failed_logins: True
+  logged_in: True
+  num_compromised: True
+  root_shell: True
+  su_attempted: True
+  num_root: True
+  num_file_creations: True
+  num_shells: True
+  num_access_files: True
+  num_outbound_cmds: True
+  is_host_login: True
+  is_guest_login: True
+  count: True
+  srv_count: True
+  serror_rate: True
+  srv_serror_rate: True
+  rerror_rate: True
+  srv_rerror_rate: True
+  same_srv_rate: True
+  diff_srv_rate: True
+  srv_diff_host_rate: True
+  dst_host_count: True
+  dst_host_srv_count: True
+  dst_host_same_srv_rate: True
+  dst_host_diff_srv_rate: True
+  dst_host_same_src_port_rate: True
+  dst_host_srv_diff_host_rate: True
+  dst_host_serror_rate: True
+  dst_host_srv_serror_rate: True
+  dst_host_rerror_rate: True
+  dst_host_srv_rerror_rate: True
+  label: True
+Przemek:
+  Type: False
+  TimeReceived: True
+  SequenceNum: True
+  SamplingRate: False
+  SamplerAddress: False
+  TimeFlowStart: True
+  TimeFlowEnd: True
+  Bytes: True
+  Packets: False
+  SrcAddr: True
+  DstAddr: True
+  Etype: True
+  Proto: True
+  SrcPort: True
+  DstPort: True

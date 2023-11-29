@@ -1,0 +1,16 @@
+Training:
+  batch_size: 16
+  max_epoch: 2000
+  lr: 1e-3
+  scheduler_step: 5000
+  scheduler_gamma: 0.9
+
+VAE:
+  Pretrained_Enc_Path:
+  Pretrained_Dec_Path:
+  Model:
+    start_dim: 100
+    hidden_dim: 64
+    step_size: 2
+    num_of_layers: 3
+    latent_dim: 16
