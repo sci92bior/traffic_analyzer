@@ -209,9 +209,13 @@ def process(data):
     #     '{"Type":"SFLOW_5","TimeReceived":1701333994,"SequenceNum":1832,"SamplingRate":64,"FlowDirection":0,"SamplerAddress":"192.168.3.2","TimeFlowStart":1701333994,"TimeFlowEnd":1701333994,"TimeFlowStartMs":0,"TimeFlowEndMs":0,"Bytes":102,"Packets":1,"SrcAddr":"192.168.2.104","DstAddr":"192.168.2.106","Etype":2048,"Proto":1,"SrcPort":0,"DstPort":0,"InIf":6,"OutIf":4,"SrcMac":"00:50:79:66:68:00","DstMac":"e6:e6:d7:7b:62:78","SrcVlan":0,"DstVlan":0,"VlanId":0,"IngressVrfId":0,"EgressVrfId":0,"IpTos":0,"ForwardingStatus":0,"IpTtl":64,"TcpFlags":0,"IcmpType":8,"IcmpCode":0,"Ipv6FlowLabel":0,"FragmentId":19430,"FragmentOffset":0,"BiFlowDirection":0,"SrcAs":0,"DstAs":0,"NextHop":"","NextHopAs":0,"SrcNet":0,"DstNet":0,"BgpNextHop":[],"BgpCommunities":[],"AsPath":[],"HasMpls":false,"MplsCount":0,"Mpls_1Ttl":0,"Mpls_1Label":0,"Mpls_2Ttl":0,"Mpls_2Label":0,"Mpls_3Ttl":0,"Mpls_3Label":0,"MplsLastTtl":0,"MplsLastLabel":0,"MplsLabelIp":[],"ObservationDomainId":0,"ObservationPointId":0,"CustomInteger_1":0,"CustomInteger_2":0,"CustomInteger_3":0,"CustomInteger_4":0,"CustomInteger_5":0,"CustomBytes_1":[],"CustomBytes_2":[],"CustomBytes_3":[],"CustomBytes_4":[],"CustomBytes_5":[]}',
     #     '{"Type":"SFLOW_5","TimeReceived":1701334006,"SequenceNum":1837,"SamplingRate":64,"FlowDirection":0,"SamplerAddress":"192.168.3.2","TimeFlowStart":1701334006,"TimeFlowEnd":1701334006,"TimeFlowStartMs":0,"TimeFlowEndMs":0,"Bytes":102,"Packets":1,"SrcAddr":"192.168.2.106","DstAddr":"192.168.2.104","Etype":2048,"Proto":1,"SrcPort":0,"DstPort":0,"InIf":4,"OutIf":6,"SrcMac":"e6:e6:d7:7b:62:78","DstMac":"00:50:79:66:68:00","SrcVlan":0,"DstVlan":0,"VlanId":0,"IngressVrfId":0,"EgressVrfId":0,"IpTos":0,"ForwardingStatus":0,"IpTtl":64,"TcpFlags":0,"IcmpType":8,"IcmpCode":0,"Ipv6FlowLabel":0,"FragmentId":46194,"FragmentOffset":16384,"BiFlowDirection":0,"SrcAs":0,"DstAs":0,"NextHop":"","NextHopAs":0,"SrcNet":0,"DstNet":0,"BgpNextHop":[],"BgpCommunities":[],"AsPath":[],"HasMpls":false,"MplsCount":0,"Mpls_1Ttl":0,"Mpls_1Label":0,"Mpls_2Ttl":0,"Mpls_2Label":0,"Mpls_3Ttl":0,"Mpls_3Label":0,"MplsLastTtl":0,"MplsLastLabel":0,"MplsLabelIp":[],"ObservationDomainId":0,"ObservationPointId":0,"CustomInteger_1":0,"CustomInteger_2":0,"CustomInteger_3":0,"CustomInteger_4":0,"CustomInteger_5":0,"CustomBytes_1":[],"CustomBytes_2":[],"CustomBytes_3":[],"CustomBytes_4":[],"CustomBytes_5":[]}']
 
-    list_of_dicts, source_ip = load_dict(data)
-    tester = Tester(list_of_dicts, source_ip)
-    return tester.process_dict()
+    try:
+        list_of_dicts, source_ip = load_dict(data)
+        tester = Tester(list_of_dicts, source_ip)
+        return tester.process_dict()
+    except Exception as e:
+        logger.error(e)
+        return []
 
 # if __name__ == '__main__':
 #     process()
