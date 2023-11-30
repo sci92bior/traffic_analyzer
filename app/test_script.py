@@ -189,7 +189,7 @@ class Tester:
                      "port": src_port, })
             else:
                 self.anomaly_count += 1
-                alerts.append({"alert_type": "ddos","device_id": self.switch_ip,"src_ip": scr_addr, "dst_ip": dst_addr, "port": src_port, })
+                alerts.append({"alert_type": "ddos","device_ip": self.switch_ip,"src_ip": scr_addr, "dst_ip": dst_addr, "port": src_port, })
                 print(f"anormal {predict} src_addr: {scr_addr} dst_addr: {dst_addr} port: {src_port}")
 
         logger.warning(f"Normal count: {self.normal_count}")
