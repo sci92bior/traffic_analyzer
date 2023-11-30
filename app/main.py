@@ -63,13 +63,9 @@ async def consume():
             logger.warning(f"Received message: {messages}")
 
             if len(messages) >= batch_size:
-                process(messages)
-                send_post_request({"alert_type": "string",
-                                   "device_id": "string",
-                                   "port": "string",
-                                   "src_ip": "string",
-                                   "dst_ip": "string"
-                                   })
+                alerts = process(messages)
+                for alert in alerts:
+                    send_post_request(alert)
                 messages = []  # Reset messages list after sending batch
     finally:
         await consumer.stop()
