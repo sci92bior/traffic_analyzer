@@ -185,7 +185,7 @@ class Tester:
                 self.normal_count += 1
                 print(f"normal {predict} src_addr: {scr_addr} dst_addr: {dst_addr} src_port: {src_port} dst_port: {dst_port}")
                 alerts.append(
-                    {"alert_type": "ddos", "device_id": self.switch_ip, "src_ip": scr_addr, "dst_ip": dst_addr,
+                    {"alert_type": "ddos", "device_ip": self.switch_ip, "src_ip": scr_addr, "dst_ip": dst_addr,
                      "port": src_port, })
             else:
                 self.anomaly_count += 1
