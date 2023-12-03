@@ -74,13 +74,13 @@ async def consume():
                 time_diff /= len(data_array) - 1
                 logger.warning(f"Time difference: {time_diff}")
 
-                # if time_diff > 1000000000:
-                #     scr_addr = data_array[0]["src_addr"]
-                #     dst_addr = data_array[0]["dst_addr"]
-                #     src_port = data_array[0]["src_port"]
-                #     dst_port = data_array[0]["dst_port"]
-                #     source_ip = data_array[0]["sampler_address"]
-                #     send_post_request({"alert_type": "ddos","device_ip": source_ip,"src_ip": scr_addr, "dst_ip": dst_addr, "port": src_port, })
+                if time_diff < 500000000.0:
+                    scr_addr = data_array[0]["src_addr"]
+                    dst_addr = data_array[0]["dst_addr"]
+                    src_port = data_array[0]["src_port"]
+                    dst_port = data_array[0]["dst_port"]
+                    source_ip = data_array[0]["sampler_address"]
+                    send_post_request({"alert_type": "ddos","device_ip": source_ip,"src_ip": scr_addr, "dst_ip": dst_addr, "port": src_port, })
                 messages = []  # Reset messages list after sending batch
     finally:
         await consumer.stop()
