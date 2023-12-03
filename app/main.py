@@ -13,7 +13,7 @@ from fastapi import FastAPI
 from app.test_script import process
 
 logger = logging.getLogger(__name__)
-KAFKA_URL = 'kafka'
+KAFKA_URL = 'kafka:9092'
 SECURITY_CONTROLLER_URL = 'http://127.0.0.1:9000/alerts/'
 
 app = FastAPI()
