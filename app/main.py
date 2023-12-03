@@ -13,8 +13,8 @@ from fastapi import FastAPI
 from app.test_script import process
 
 logger = logging.getLogger(__name__)
-KAFKA_URL = os.environ.get('KAFKA_URL')
-SECURITY_CONTROLLER_URL = os.environ.get('SECURITY_CONTROLLER_URL')
+KAFKA_URL = '192.168.100.67:9092'
+SECURITY_CONTROLLER_URL = 'http://127.0.0.1:9000/alerts/'
 
 app = FastAPI()
 loop = asyncio.get_event_loop()
