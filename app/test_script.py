@@ -63,7 +63,6 @@ def load_dict(data):
     for i in data:
         data_array.append(json.loads(i))
 
-
     df = pd.DataFrame.from_records(data_array)
     # create df with only necesaries
     new_df = pd.DataFrame()

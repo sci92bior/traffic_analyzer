@@ -13,7 +13,7 @@ from fastapi import FastAPI
 from app.test_script import process
 
 logger = logging.getLogger(__name__)
-KAFKA_URL = '192.168.100.67:9092'
+KAFKA_URL = '127.0.0.1:9092'
 SECURITY_CONTROLLER_URL = 'http://127.0.0.1:9000/alerts/'
 
 app = FastAPI()
@@ -63,9 +63,24 @@ async def consume():
             logger.warning(f"Received message: {messages}")
 
             if len(messages) >= batch_size:
-                alerts = process(messages)
-                for alert in alerts:
-                    send_post_request(alert)
+                data_array = []
+                for i in messages:
+                    data_array.append(json.loads(i))
+
+                # calculate mean time difference between messages
+                time_diff = 0
+                for i in range(len(data_array) - 1):
+                    time_diff += data_array[i + 1]['time_received_ns'] - data_array[i]['time_received_ns']
+                time_diff /= len(data_array) - 1
+                logger.warning(f"Time difference: {time_diff}")
+
+                # if time_diff > 1000000000:
+                #     scr_addr = data_array[0]["src_addr"]
+                #     dst_addr = data_array[0]["dst_addr"]
+                #     src_port = data_array[0]["src_port"]
+                #     dst_port = data_array[0]["dst_port"]
+                #     source_ip = data_array[0]["sampler_address"]
+                #     send_post_request({"alert_type": "ddos","device_ip": source_ip,"src_ip": scr_addr, "dst_ip": dst_addr, "port": src_port, })
                 messages = []  # Reset messages list after sending batch
     finally:
         await consumer.stop()
